@@ -1,5 +1,8 @@
 package com.countdown.generators;
 
+import com.countdown.enums.NumberSize;
+import com.countdown.enums.Operators;
+
 import java.util.Random;
 
 public class QuestionNumbers {
@@ -24,11 +27,11 @@ public class QuestionNumbers {
         int smallNumberLength = smallNumbers.length - 1;
 
         for (int i = 0; i < numbers.length; i++) {
-            int selection = random.nextInt(2);
-            if((selection == 0 && largeNumberLength >= 0) || (selection == 1 && smallNumberLength < 0)){
+            NumberSize selection = NumberSize.values()[random.nextInt(2)];
+            if((selection == NumberSize.LARGE && largeNumberLength >= 0) || (selection == NumberSize.SMALL && smallNumberLength < 0)){
                 numbers[i] = largeNumbers[largeNumberLength];
                 largeNumberLength -= 1;
-            } else if((selection == 0 && largeNumberLength < 0) || (selection == 1 && smallNumberLength >= 0)) {
+            } else if((selection == NumberSize.LARGE && largeNumberLength < 0) || (selection == NumberSize.SMALL && smallNumberLength >= 0)) {
                 numbers[i] = smallNumbers[smallNumberLength];
                 smallNumberLength -= 1;
             }
