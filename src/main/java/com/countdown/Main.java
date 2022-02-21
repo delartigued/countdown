@@ -1,10 +1,15 @@
 package com.countdown;
 
-import com.countdown.generator.QuestionNumbers;
-import com.countdown.generator.TargetGenerator;
+import com.countdown.generators.QuestionNumbers;
+import com.countdown.generators.Target;
 
 public class Main {
     public static void main(String[] args) {
-        QuestionNumbers.generateNumbers(TargetGenerator.newTarget());
+        QuestionNumbers questionNumbers = new QuestionNumbers();
+        int[] numbers = questionNumbers.generate();
+
+        Target target = new Target(numbers);
+
+        target.generate();
     }
 }
