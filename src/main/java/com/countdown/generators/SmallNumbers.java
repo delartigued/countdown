@@ -1,4 +1,4 @@
-package com.countdown.generator;
+package com.countdown.generators;
 
 import java.util.Random;
 
